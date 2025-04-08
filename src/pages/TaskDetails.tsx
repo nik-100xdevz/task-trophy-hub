@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useTasks, Task } from "@/contexts/TaskContext";
@@ -41,12 +40,11 @@ const TaskDetails = () => {
     setIsSubmitting(true);
     
     try {
-      // Find the assigned user by ID (in a real app, this would be an API call)
       const assignedUser = {
         id: formData.assignedToId,
         name: "Test User",
         email: "user@example.com",
-        role: "user" as const, // Fixed: explicitly typed as UserRole
+        role: "user" as const,
         avatarUrl: `https://api.dicebear.com/7.x/personas/svg?seed=${formData.assignedToId}`
       };
       
@@ -100,7 +98,6 @@ const TaskDetails = () => {
     return format(new Date(dateString), "PPP");
   };
 
-  // Prepare form initial values
   const initialFormValues = {
     title: task.title,
     description: task.description,
