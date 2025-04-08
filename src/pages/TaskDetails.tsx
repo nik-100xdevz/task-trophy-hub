@@ -46,7 +46,7 @@ const TaskDetails = () => {
         id: formData.assignedToId,
         name: "Test User",
         email: "user@example.com",
-        role: "user",
+        role: "user" as const, // Fixed: explicitly typed as UserRole
         avatarUrl: `https://api.dicebear.com/7.x/personas/svg?seed=${formData.assignedToId}`
       };
       

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useAuth, User } from "@/contexts/AuthContext";
+import { useAuth, User, UserRole } from "@/contexts/AuthContext";
 import { TaskPriority } from "@/contexts/TaskContext";
 import { Button } from "@/components/ui/button";
 import {
@@ -30,21 +30,21 @@ const mockUsers = [
     id: "2",
     name: "Test User",
     email: "user@example.com",
-    role: "user" as const,
+    role: "user" as UserRole,
     avatarUrl: "https://api.dicebear.com/7.x/personas/svg?seed=user"
   },
   {
     id: "3",
     name: "Jane Doe",
     email: "jane@example.com",
-    role: "user" as const,
+    role: "user" as UserRole,
     avatarUrl: "https://api.dicebear.com/7.x/personas/svg?seed=jane"
   },
   {
     id: "4",
     name: "John Smith",
     email: "john@example.com",
-    role: "user" as const,
+    role: "user" as UserRole,
     avatarUrl: "https://api.dicebear.com/7.x/personas/svg?seed=john"
   }
 ];
