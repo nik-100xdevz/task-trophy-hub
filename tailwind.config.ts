@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,18 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        task: {
+          low: '#9AE6B4',     // Green for low priority
+          medium: '#FCD34D',  // Yellow for medium priority
+          high: '#FC8181',    // Red for high priority
+        },
+        badge: {
+          bronze: '#CD7F32',
+          silver: '#C0C0C0',
+          gold: '#FFD700',
+          platinum: '#E5E4E2',
+        }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +96,31 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+        'fade-in': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(10px)'
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)'
+          }
+        },
+        'bounce-small': {
+          '0%, 100%': {
+            transform: 'translateY(0)'
+          },
+          '50%': {
+            transform: 'translateY(-5px)'
+          }
+        }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+        'fade-in': 'fade-in 0.3s ease-out',
+        'bounce-small': 'bounce-small 1s ease-in-out infinite'
 			}
 		}
 	},
