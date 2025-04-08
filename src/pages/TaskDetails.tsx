@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useTasks, Task } from "@/contexts/TaskContext";
@@ -106,6 +107,9 @@ const TaskDetails = () => {
     dueDate: task.dueDate
   };
 
+  // Helper to check if task is not completed - this helps TypeScript understand the valid types
+  const isTaskNotCompleted = task.status !== "completed";
+
   return (
     <div className="container mx-auto">
       <div className="mb-6">
@@ -132,7 +136,7 @@ const TaskDetails = () => {
             </div>
           </div>
           
-          {(isAdmin || task.assignedTo.id === currentUser?.id) && task.status !== "completed" && (
+          {(isAdmin || task.assignedTo.id === currentUser?.id) && isTaskNotCompleted && (
             <div className="flex gap-2">
               <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                 <DialogTrigger asChild>
@@ -153,7 +157,7 @@ const TaskDetails = () => {
                 </DialogContent>
               </Dialog>
               
-              {task.status !== "completed" && (
+              {isTaskNotCompleted && (
                 <Button variant="default" size="sm" onClick={handleCompleteTask}>
                   <Check className="h-4 w-4 mr-2" />
                   Complete
